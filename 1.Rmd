@@ -1,0 +1,36 @@
+Title
+========================================================
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring web pages (click the **Help** toolbar button for more details on using R Markdown).
+
+When you click the **Knit HTML** button a web page will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r} 
+summary(cars)
+```
+
+You can also embed plots, for example:
+
+```{r fig.width=7, fig.height=6}
+# what size you want
+
+setwd("C:\Users\User\Desktop\data")
+gDat <- read.delim("gapminder.txt")
+str(gDat)
+gDat2 <- subset(gDat,country %in% c("India","China", "Afghanistan"))
+gDat2
+str(gDat2)
+install.packages("reshape2") 
+require('reshape2')
+library(ggplot2)
+
+
+ggplot(gDat2, aes(year, gdpPercap, color = country)) +
+    geom_point(size=3) +
+  theme_bw() + facet_wrap(~ country)
+
+plot(cars)
+```
+the mean of some number is `r mean(c(2,3,4))`.
+
+
